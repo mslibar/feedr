@@ -1,4 +1,4 @@
-# Feeder Basic
+# Feeder
 Simple Django web-application for fetching and displaying RSS feeds from various sources.
 
 ## Requirements
