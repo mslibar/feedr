@@ -1,0 +1,9 @@
+{% if feeds %}
+  <ul class="uk-list uk-list-striped">
+  {% for feed in feeds %}
+    <li><a href="{% url 'feeds:feed_article_list' feed.id feed.slug %}">{{ feed.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No active feeds found!</p>
+{% endif %}

@@ -1,0 +1,45 @@
+{% extends "feeds/base.html" %}
+
+{% block title %}Authors{% endblock %}
+
+{% block content %}
+
+  <div class="uk-width-1-1">
+    <h1>Authors</h1>
+
+    {% if object_list %}
+
+      <h2 class="tm-article-subtitle">Search for an author:</h2>
+
+      <div class="uk-container-center custom-autocomplete">
+        <div class="uk-autocomplete uk-form" data-uk-autocomplete="{source:'/authors.json'}">
+          <input class="custom-input" type="text">
+          {% csrf_token %}
+          {% verbatim %}
+          <script type="text/autocomplete">
+              <ul class="uk-nav uk-nav-autocomplete uk-autocomplete-results">
+                  {{~items}}
+                  <li data-value="{{ $item.name }}"><a href="{{ $item.url }}">{{ $item.name }}</a></li>
+                  {{/items}}
+              </ul>
+          </script>
+          {% endverbatim %}
+        </div>
+      </div>
+
+      <ul class="uk-list uk-list-striped">
+      {% for author in object_list %}
+        <li><a href="{% url 'feeds:author_article_list' author.id author.slug %}">{{ author.name }}</a></li>
+      {% endfor %}
+      </ul>
+
+      {% if is_paginated %}
+        {% include "feeds/pagination.html" %}
+      {% endif %}
+
+    {% else %}
+      <p>No authors found!</p>
+    {% endif %}
+  </div>
+
+{% endblock %}

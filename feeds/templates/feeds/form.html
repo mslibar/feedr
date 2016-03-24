@@ -1,0 +1,11 @@
+<form action="/" method="POST" class="uk-form uk-form-stacked">
+  {% for field in form %}
+      <div class="uk-form-row">
+          {{ field.errors }}
+          <label class="uk-form-label" for="form-s-it">{{ field.label_tag }}</label>
+          <div class="uk-form-controls">{{ field }}</div>
+      </div>
+  {% endfor %}
+  {% csrf_token %}
+  <p><button class="uk-button">Submit</button></p>
+</form>

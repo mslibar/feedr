@@ -1,0 +1,32 @@
+.uk-autocomplete {
+  position: relative;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 20px 10px;
+}
+
+.custom-autocomplete .uk-dropdown {
+  width: 100%;
+}
+
+.article-wrapper .article-thumb {
+  float: left;
+}
+
+.article-wrapper .article-thumb img {
+  max-width: 100px;
+  height: auto;
+  margin: 5px 10px 10px 0;
+}
+
+.article-wrapper .uk-article-meta {
+  margin: 0;
+}
+
+.article-wrapper h1.uk-article-title {
+  margin: 10px 0;
+  font-size: 30px;
+  line-height: 1.1;
+}

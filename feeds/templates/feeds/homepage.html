@@ -1,0 +1,28 @@
+{% extends "feeds/base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+
+  <div class="uk-width-4-5">
+    <h1>Active feeds</h1>
+    {% if object_list %}
+      <ul class="uk-list uk-list-striped">
+      {% for feed in object_list %}
+        <li><a href="{% url 'feeds:feed_article_list' feed.id feed.slug %}">{{ feed.title }}</a></li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No active feed found!</p>
+    {% endif %}
+  </div>
+
+  <div class="uk-width-1-5">
+    <div class="uk-panel uk-panel-header uk-width-medium-1-1">
+      <h2 class="uk-panel-title">Add your feed</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+      {% include "feeds/form.html" with form=view.feed_form %}
+    </div>
+  </div>
+
+{% endblock %}
